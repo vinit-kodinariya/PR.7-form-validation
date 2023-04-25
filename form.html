@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Form Validation</title>
+    <link rel="icon" href="image/favicon.png">
+    <link rel="stylesheet" type="text/css" href="css/all.min.css">
+    <link rel="stylesheet" href="css/form.css">
+</head>
+
+<body>
+    <div class="img">
+        <div class="box">
+            <div class="box-d"></div>
+            <p class="head">Form Validation</p>
+
+            <div class="form form-1">
+                <input type="text" class="form-control" id="name" placeholder="Your Name" />
+            </div>
+
+            <div class="form form-2">
+                <input type="email" class="form-control" id="email" placeholder="Your Email" />
+            </div>
+
+            <div class="form form-3">
+                <input type="Password" class="form-control" id="password" placeholder="Your Password" />
+            </div>
+
+            <div class="form form-3">
+                <input type="tel" class="form-control" id="phone" placeholder="Your Phone Number" />
+            </div>
+            
+            <div class="form form-4">
+                <button type="submit" onclick="save()">SUBMIT&nbsp;&nbsp; <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script type="text/javascript">
+
+    function save() {
+
+        // Validate Name
+        let name = document.getElementById('name').value;
+        let letter = /^[a-z]+$/;
+        var reg = new RegExp(letter);
+
+        if (reg.test(name)) {
+            console.log("Done"),
+                document.getElementById('name').style.borderColor = "green";
+        }
+        else {
+            alert("Enter Vaild Name"),
+                document.getElementById('name').style.borderColor = "red";
+        }
+
+
+        // Validate Email
+        let email = document.getElementById('email').value;
+        let eml = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+        var check = new RegExp(eml);
+
+        if (check.test(email)) {
+            console.log("Done"),
+                document.getElementById('email').style.borderColor = "green";
+        }
+        else {
+            alert("Enter Vaild Email"),
+                document.getElementById('email').style.borderColor = "red";
+        }
+
+
+        // Validate Password
+        let password = document.getElementById('password').value;
+        let pass = /^.{8,16}$/;
+        var pwd = new RegExp(pass);
+
+        if (pwd.test(password)) {
+            console.log("Done"),
+                document.getElementById('password').style.borderColor = "green";
+        }
+        else {
+            alert("Password must be between 8 to 16 characters."),
+                document.getElementById('password').style.borderColor = "red";
+        }
+
+
+        // Validate Phone
+        let phone = document.getElementById('phone').value;
+        let phn = /^[0-9]{10}$/;
+        var no = new RegExp(phn);
+
+        if (no.test(phone)) {
+            console.log("Done"),
+                document.getElementById('phone').style.borderColor = "green";
+        }
+        else {
+            alert("Phone number can only contain 10 digits."),
+                document.getElementById('phone').style.borderColor = "red";
+        }
+    }
+</script>
